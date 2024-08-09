@@ -1,13 +1,6 @@
 const { Router } = require('express');
-const admin = require("firebase-admin");
+const admin = require("../credentials");
 const router = Router()
-
-//importante este metodo para la seguridad de la base de datos en firebase
-admin.initializeApp({
-    credential: admin.credential.cert("./credentials.json"),
-    databaseURL: "https://chatbotportalesinteracti-52820-default-rtdb.firebaseio.com"
-})
-
 const db = admin.firestore();
 // insertar registros 
 router.post("/api/frequencyquestions", async(req, res) => {
